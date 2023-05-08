@@ -1,8 +1,8 @@
 import { CustomerService } from "../application/usecases/customer-service-usecase";
-import { CustomerRepository } from "./customer-repository/customer-repository";
+import { DynamoDBCustomerRepository } from "./customer-repository/dynamo-db-customer-repository";
 import { CustomerController } from "./rest-api/customer-controller";
 
-const customerRepository = new CustomerRepository();
-const customerService = new CustomerService(customerRepository);
+const dynamoDBCustomerRepository = new DynamoDBCustomerRepository();
+const customerService = new CustomerService(dynamoDBCustomerRepository);
 
 export const customerController = new CustomerController(customerService);

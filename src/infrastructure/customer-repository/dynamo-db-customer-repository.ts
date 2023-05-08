@@ -2,7 +2,7 @@ import { ICustomerRepository } from "../../domain/customer/customer-repository";
 import { Customer } from "../../domain/customer/entities/customer";
 import { DynamoDB } from "../driven-adapters/AWS/dinamo-db";
 
-export class CustomerRepository implements ICustomerRepository {
+export class DynamoDBCustomerRepository implements ICustomerRepository {
   private readonly _db = DynamoDB.getInstance();
 
   async getById(id: string): Promise<Customer | null> {
